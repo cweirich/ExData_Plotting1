@@ -9,6 +9,7 @@ plot3 <- function()
     # Sorry about the day of week labels
     # I tried using Sys.setlocale("LC_TIME", "en_US") but it didn't work here
     time <- ymd_hms(paste(as.character(power$Date), as.character(power$Time)))
+    png("plot3.png")    
     par(mar=c(4,4,3,1))
     plot(as.numeric(power$Sub_metering_1) ~ time,
          type="l",
@@ -29,6 +30,5 @@ plot3 <- function()
            lty=1)
 
     # save the results
-    dev.copy(png, file = "plot3.png")
     dev.off()
 }
